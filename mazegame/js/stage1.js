@@ -98,7 +98,7 @@ function checkGoal() {
 
 function triggerJumpscare() {
     gameOver = true;
-    jumpscareDiv.style.display = "flex";
+    jumpscareDiv.classList.remove('hidden');
     var video = document.getElementById('video');
     if (video) {
         video.loop = true; 
