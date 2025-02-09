@@ -125,7 +125,12 @@ function triggerJumpscare() {
 }
 
 function handleKeydown(e) {
-    if (gameOver) return; 
+    if (gameOver) {
+        if (e.key === "Escape") {
+            window.location.href = "index.html"; // Go back to menu
+        }
+        return;
+    }
     const { speed, offsetX, offsetY } = randomizeSpeed();
     switch (e.key) {
         case "ArrowUp": case "w": case "W": 
@@ -155,7 +160,7 @@ canvas.addEventListener('click', (e) => {
     const rect = canvas.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
-
+    console.log(`Clicked for the ${clickCount + 1} time at (${x}, ${y})`);
     if (x >= player.x && x <= player.x + player.size &&
         y >= player.y && y <= player.y + player.size) {
         clickCount++;
