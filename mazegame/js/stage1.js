@@ -75,7 +75,9 @@ function checkCollision() {
             player.y + player.size > wall.y) {
             player.dx = 0; 
             player.dy = 0; 
-            collideSound.play(); 
+            collideSound.play().catch(function(error) {
+                console.error('Error playing collision sound:', error);
+            });
             triggerJumpscare();
             gameOver = true; 
             break; 
@@ -139,6 +141,9 @@ function handleKeydown(e) {
         case "ArrowRight": case "d": case "D": 
             player.dx = speed + offsetX; 
             player.dy = offsetY; 
+            break;
+        case "Escape":
+            window.location.href = "index.html"; // Go back to menu
             break;
     }
     update();
