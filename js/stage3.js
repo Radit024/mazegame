@@ -23,8 +23,9 @@ const walls = [
     { x: 150, y: 50, width: 10, height: 400 },
     { x: 250, y: 150, width: 10, height: 400 },
     { x: 350, y: 50, width: 10, height: 400 },
-    { x: 450, y: 350, width: 10, height: 200 },
-    { x: 550, y: 50, width: 10, height: 400 }
+    { x: 425, y: 350, width: 10, height: 200 },
+    { x: 600, y: 150, width: 10, height: 400 },
+    { x: 500, y: 50, width: 10, height: 300 }
 ];
 
 const goal = {
@@ -93,8 +94,8 @@ function checkGoal() {
         player.y < goal.y + goal.size &&
         player.y + player.size > goal.y) {
         goalReached = true; 
-        alert("You Win! Proceeding to Stage 3.");
-        window.location.href = "stage3.html"; 
+        alert("You Win! Proceeding to Stage 4.");
+        window.location.href = "stage4.html"; 
     }
 }
 
@@ -165,8 +166,8 @@ canvas.addEventListener('click', (e) => {
         y >= player.y && y <= player.y + player.size) {
         clickCount++;
         if (clickCount >= 15) {
-            alert("You Win! Proceeding to Stage 3.");
-            window.location.href = "stage3.html"; 
+            alert("You Win! Proceeding to Stage 4.");
+            window.location.href = "stage4.html"; 
         }
     }
 });
