@@ -95,7 +95,6 @@ function checkGoal() {
         player.y < goal.y + goal.size &&
         player.y + player.size > goal.y) {
         goalReached = true; 
-        alert("You Win! Proceeding to Stage 5.");
         window.location.href = "stage5.html"; 
     }
 }
@@ -167,13 +166,17 @@ canvas.addEventListener('click', (e) => {
         y >= player.y && y <= player.y + player.size) {
         clickCount++;
         if (clickCount >= 15) {
-            alert("You Win! Proceeding to Stage 5.");
             window.location.href = "stage5.html"; 
         }
     }
 });
 
 window.addEventListener("keydown", handleKeydown);
+window.addEventListener("keydown", function(e) {
+    if(["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].indexOf(e.key) > -1) {
+        e.preventDefault();
+    }
+}, false);
 
 function gameLoop() {
     if (!gameOver) {
